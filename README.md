@@ -1,2 +1,2 @@
 # net-manager-test
-Qt Network Manager Class Example
+Qt Network Configuration Manager Class Example
