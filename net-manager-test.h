@@ -29,7 +29,12 @@ class myNetworkManager : public QNetworkConfigurationManager
 
     void logWLANConfigs ()
     {
-      for (const QNetworkConfiguration& wlanConfig : getWLANList()) {
+      QList<QNetworkConfiguration> configList {getWLANList()};
+      if ( 0 == configList.size() ) {
+          qDebug() << "WLAN Config list is empty.";
+          return;
+      }
+      for (const QNetworkConfiguration& wlanConfig : configList) {
         qDebug() << "WLAN Name:" << wlanConfig.name()
                  << "state:" << wlanConfig.state()
                  << "bearer type name:" << wlanConfig.bearerTypeName()
